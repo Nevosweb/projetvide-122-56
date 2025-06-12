@@ -1,0 +1,8 @@
+
+project_id = "dnmywpaiigmcwrqqlkot"
+
+[functions.check-availability]
+verify_jwt = false
+
+[functions.send-reservation-email]
+verify_jwt = false

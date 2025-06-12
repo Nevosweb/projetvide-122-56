@@ -1,0 +1,90 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 52% 98%;
+    --foreground: 20 14.3% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+
+    --primary: 43 76% 52%;
+    --primary-foreground: 60 9.1% 97.8%;
+
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --accent: 162 69% 12%;
+    --accent-foreground: 60 9.1% 97.8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 43 76% 52%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brasserie-ivory text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+.container-custom {
+  @apply container max-w-7xl px-4 sm:px-6 mx-auto;
+}
+
+.heading-xl {
+  @apply font-playfair text-4xl md:text-5xl font-bold leading-tight;
+}
+
+.heading-lg {
+  @apply font-playfair text-3xl md:text-4xl font-semibold leading-tight;
+}
+
+.heading-md {
+  @apply font-playfair text-2xl md:text-3xl font-semibold;
+}
+
+.gold-divider {
+  @apply relative my-4 h-px bg-brasserie-gold w-20 mx-auto;
+}
+
+.gold-divider::before, .gold-divider::after {
+  content: '';
+  @apply absolute top-1/2 transform -translate-y-1/2 w-1 h-1 rounded-full bg-brasserie-gold;
+}
+
+.gold-divider::before {
+  @apply -left-1;
+}
+
+.gold-divider::after {
+  @apply -right-1;
+}
