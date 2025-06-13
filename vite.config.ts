@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
   
   server: {
     host: "::",
-    port: 8080,
+    port: 8081, // Changé pour éviter le conflit avec template-boucherie
   },
   
   // Configuration optimisée pour le build
