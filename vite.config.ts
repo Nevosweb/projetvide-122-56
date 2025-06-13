@@ -5,16 +5,19 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // IMPORTANT: Remplacer "brasserie-honore-accueil-45-main" par le nom exact du repository GitHub
+  // Configuration pour GitHub Actions + GitHub Pages
+  // La base sera automatiquement détectée par le workflow
   base: mode === 'production' ? '/template-brasserie/' : '/',
+  
   server: {
     host: "::",
     port: 8080,
   },
+  
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false,
+    sourcemap: mode === 'development', // Sourcemap uniquement en dev
     rollupOptions: {
       output: {
         manualChunks: {
@@ -25,6 +28,7 @@ export default defineConfig(({ mode }) => ({
 
           const info = assetInfo.name.split('.');
           const ext = info[info.length - 1];
+          
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
             return `images/[name]-[hash][extname]`;
           }
@@ -39,18 +43,29 @@ export default defineConfig(({ mode }) => ({
     },
     minify: 'esbuild',
     target: 'esnext',
+    // Optimisations pour GitHub Pages
+    assetsInlineLimit: 4096,
+    chunkSizeWarningLimit: 500,
   },
+  
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  
   optimizeDeps: {
     include: ['react', 'react-dom'],
+  },
+  
+  // Configuration pour éviter les problèmes de CORS en dev
+  preview: {
+    port: 4173,
+    host: true,
   },
 }));
