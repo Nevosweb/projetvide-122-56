@@ -1,14 +1,29 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "template-brasserie",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Template pour site de brasserie avec React, Vite et Supabase",
+  "homepage": "https://votre-username.github.io/template-brasserie/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/votre-username/template-brasserie.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --fix",
+    "type-check": "tsc --noEmit",
+    "test:build": "npm run build && npm run preview",
+    "clean": "rm -rf dist node_modules/.vite",
+    "prepare": "npm run type-check"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -80,5 +95,17 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
