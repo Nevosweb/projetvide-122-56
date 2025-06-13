@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // IMPORTANT: Remplacer "brasserie-honore-accueil-45-main" par le nom exact du repository GitHub
-  base: mode === 'production' ? '/brasserie-honore-accueil-45-main/' : '/',
+  base: mode === 'production' ? '/template-brasserie/' : '/',
   server: {
     host: "::",
     port: 8080,
